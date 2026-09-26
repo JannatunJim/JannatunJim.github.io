@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Most. Jannatun Nesa Jim — Education graduate, educator, and aspiring professional." />
+  <title>Most. Jannatun Nesa Jim | Portfolio</title>
+
+  <style>
+    :root {
+      --primary: #244a61;
+      --primary-dark: #173447;
+      --accent: #d9a441;
+      --accent-soft: #fff4d8;
+      --text: #24323d;
+      --muted: #657580;
+      --bg: #f4f7f9;
+      --white: #ffffff;
+      --border: #e5ebef;
+      --shadow: 0 18px 50px rgba(23, 52, 71, 0.10);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 0.3px;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      list-style: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 85% 15%, rgba(217, 164, 65, 0.18), transparent 28%),
+        linear-gradient(135deg, #173447, #2f617b);
+      color: var(--white);
+      padding: 90px 0 80px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #ffe3a3;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 6vw, 4.6rem);
+      line-height: 1.1;
+      margin-bottom: 22px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 span {
+      color: #ffd477;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #e6f0f5;
+      font-size: 1.08rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 12px 22px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #1f2b30;
+    }
+
+    .btn-secondary {
+      border-color: rgba(255, 255, 255, 0.45);
+      color: var(--white);
+      background: transparent;
+    }
+
+    .profile-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 30px;
+      padding: 35px 25px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .profile-photo { width:150px; height:150px; margin:0 auto 20px; position:relative; }
+    .profile-photo img, .profile-avatar-fallback { width:150px; height:150px; border-radius:50%; }
+    .profile-photo img { display:block; object-fit:cover; border:7px solid rgba(255,255,255,.32); background:#fff; }
+    .profile-avatar-fallback { display:none; place-items:center; background:linear-gradient(145deg,#ffe4a4,#d9a441); color:var(--primary-dark); font-size:3.4rem; font-weight:800; border:7px solid rgba(255,255,255,.32); }
+    .experience-layout { display:grid; grid-template-columns:210px 1fr; gap:28px; align-items:center; }
+    .experience-photo { width:210px; height:155px; border-radius:16px; overflow:hidden; background:#edf5f8; border:1px dashed #b9cbd4; }
+    .experience-photo img { width:100%; height:100%; display:block; object-fit:cover; }
+    .experience-fallback { width:100%; height:100%; display:grid; place-items:center; color:#527181; font-size:.9rem; font-weight:700; text-align:center; padding:15px; }
+    .profile-avatar {
+      width: 150px;
+      height: 150px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #ffe4a4, #d9a441);
+      color: var(--primary-dark);
+      font-size: 3.4rem;
+      font-weight: 800;
+      border: 7px solid rgba(255, 255, 255, 0.32);
+    }
+
+    .profile-card h2 {
+      font-size: 1.35rem;
+      margin-bottom: 5px;
+    }
+
+    .profile-card p {
+      font-size: 0.9rem;
+      margin: 0;
+      color: #e7f2f7;
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-heading .eyebrow {
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      color: var(--primary);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 13px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .highlight-list {
+      list-style: none;
+      display: grid;
+      gap: 13px;
+      margin-top: 20px;
+    }
+
+    .highlight-list li {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+
+    .highlight-list li::before {
+      content: "✓";
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 23px;
+      height: 23px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: #8a6218;
+      font-weight: 800;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 17px;
+      top: 5px;
+      bottom: 5px;
+      width: 2px;
+      background: #d9e3e9;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 58px;
+      margin-bottom: 28px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 7px;
+      top: 5px;
+      width: 22px;
+      height: 22px;
+      background: var(--accent);
+      border: 5px solid var(--bg);
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px #d9e3e9;
+    }
+
+    .timeline-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 25px 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-card h3 {
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .timeline-card .organization {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .date {
+      display: inline-block;
+      margin: 10px 0 13px;
+      padding: 4px 11px;
+      background: var(--accent-soft);
+      color: #8a6218;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .timeline-card ul {
+      padding-left: 19px;
+      color: var(--muted);
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .education-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .education-card::before {
+      content: "";
+      display: block;
+      height: 5px;
+      background: var(--accent);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .education-card h3 {
+      margin-top: 8px;
+    }
+
+    .education-card .institution {
+      font-weight: 600;
+      color: var(--text);
+      margin: 10px 0;
+    }
+
+    .education-card p {
+      font-size: 0.95rem;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .skill-group h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .skill-group h3 span {
+      display: grid;
+      place-items: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: #8a6218;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tags span {
+      padding: 9px 14px;
+      background: #edf5f8;
+      border: 1px solid #d9e8ee;
+      color: #315b70;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .contact-section {
+      background: var(--primary-dark);
+      color: var(--white);
+    }
+
+    .contact-section .section-heading h2 {
+      color: var(--white);
+    }
+
+    .contact-section .section-heading p {
+      color: #c9dce5;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .contact-card {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      padding: 25px 15px;
+    }
+
+    .contact-icon {
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #ffe0a0;
+    }
+
+    .contact-card a,
+    .contact-card p {
+      color: #e2edf2;
+      font-size: 0.92rem;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-card a:hover {
+      color: #ffd477;
+    }
+
+    footer {
+      background: #102631;
+      color: #a8c0cb;
+      text-align: center;
+      padding: 22px 0;
+      font-size: 0.9rem;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: none;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #1f2b30;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .about-grid,
+      .skills-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        max-width: 380px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .education-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        justify-content: center;
+        padding: 15px 0;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 12px 18px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero {
+        padding: 60px 0;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .card, .timeline-card { padding:23px; }
+      .experience-layout { grid-template-columns:1fr; }
+      .experience-photo { width:100%; height:190px; }
+
+      .timeline-item {
+        padding-left: 43px;
+      }
+
+      .timeline::before {
+        left: 10px;
+      }
+
+      .timeline-dot {
+        left: 0;
+      }
+    }
+
+    @media print {
+      .navbar,
+      .back-to-top,
+      .hero-buttons {
+        display: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      .hero,
+      .contact-section {
+        background: white;
+        color: black;
+      }
+
+      .hero h1,
+      .section-heading h2,
+      .card h3,
+      .timeline-card h3 {
+        color: black;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">Jannatun <span>Jim.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Education Graduate • Aspiring Professional</span>
+        <h1>Hello, I'm <span>Jannatun Nesa Jim</span></h1>
+        <p>
+          A dedicated Education graduate from the Institute of Education and Research,
+          University of Dhaka, with practical teaching internship experience and an
+          interest in meaningful professional opportunities.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#contact">Let's Connect →</a>
+          <a class="btn btn-secondary" href="#experience">View Experience</a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <!-- Place Jim.jpg in the same folder as this HTML file -->
+        <div class="profile-photo"><img src="Jim.jpg" alt="Most. Jannatun Nesa Jim" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"><div class="profile-avatar-fallback">JJ</div></div>
+        <h2>Most. Jannatun Nesa Jim</h2>
+        <p>Education Graduate | Educator | Lifelong Learner</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">About Me</span>
+          <h2>Professional Profile</h2>
+          <p>A short introduction to my academic background, strengths, and professional interests.</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="card">
+            <h3>Who I Am</h3>
+            <p>
+              I am an Education graduate from the University of Dhaka with experience
+              in classroom management, lesson planning, educational presentations,
+              and coordination with senior teachers. I enjoy learning new skills,
+              organizing tasks, and contributing to collaborative environments.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>What I Bring</h3>
+            <ul class="highlight-list">
+              <li>Academic foundation in Education and learning processes.</li>
+              <li>Six months of practical teaching internship experience.</li>
+              <li>Experience managing a classroom of 40+ students.</li>
+              <li>Working knowledge of Word, Excel, PowerPoint, and Canva.</li>
+              <li>Communication, organization, and problem-solving abilities.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">My Journey</span>
+          <h2>Professional Experience</h2>
+          <p>Practical experience that helped me develop classroom, planning, and coordination skills.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <article class="timeline-card experience-layout">
+              <!-- Place experience.jpg in the same folder as this HTML file -->
+              <div class="experience-photo"><img src="experience.jpg" alt="Teaching internship experience" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"><div class="experience-fallback">experience.jpg</div></div>
+              <div class="experience-details">
+              <h3>Intern Teacher</h3>
+              <p class="organization">Udayan Uchcha Madhyamic Bidyalaya · Dhaka, Bangladesh</p>
+              <span class="date">October 2024 – March 2025</span>
+              <ul>
+                <li>Managed a classroom of 40+ students to support a positive learning environment.</li>
+                <li>Developed engaging lesson plans and educational presentations.</li>
+                <li>Coordinated with senior teachers for school events and activities.</li>
+              </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Academic Background</span>
+          <h2>Education</h2>
+          <p>My educational qualifications and academic achievements.</p>
+        </div>
+
+        <div class="education-grid">
+          <article class="card education-card">
+            <h3>B.Ed in Education</h3>
+            <p class="institution">Institute of Education and Research, University of Dhaka</p>
+            <p><strong>CGPA:</strong> 3.74</p>
+            <p><strong>Passing Year:</strong> 2024</p>
+          </article>
+
+          <article class="card education-card">
+            <h3>Higher Secondary Certificate</h3>
+            <p class="institution">Science · Rajshahi Board</p>
+            <p><strong>GPA:</strong> 5.00</p>
+          </article>
+
+          <article class="card education-card">
+            <h3>Secondary School Certificate</h3>
+            <p class="institution">Science · Rajshahi Board</p>
+            <p><strong>GPA:</strong> 5.00</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Capabilities</span>
+          <h2>Skills & Competencies</h2>
+          <p>A combination of technical knowledge and interpersonal strengths.</p>
+        </div>
+
+        <div class="skills-layout">
+          <article class="card skill-group">
+            <h3><span>⌘</span> Technical Skills</h3>
+            <div class="skill-tags">
+              <span>MS Word</span>
+              <span>Microsoft Excel</span>
+              <span>PowerPoint</span>
+              <span>Canva</span>
+            </div>
+          </article>
+
+          <article class="card skill-group">
+            <h3><span>✦</span> Soft Skills</h3>
+            <div class="skill-tags">
+              <span>Public Speaking</span>
+              <span>Communication</span>
+              <span>Time Management</span>
+              <span>Problem Solving</span>
+              <span>Organization</span>
+              <span>Team Coordination</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Get In Touch</span>
+          <h2>Let's Connect</h2>
+          <p>
+            I am open to learning opportunities, professional connections,
+            and meaningful career possibilities.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card">
+            <div class="contact-icon">✉</div>
+            <h3>Email</h3>
+            <a href="mailto:jjannatun016@gmail.com">jjannatun016@gmail.com</a>
+          </article>
+
+          <article class="contact-card">
+            <div class="contact-icon">☎</div>
+            <h3>Phone</h3>
+            <a href="tel:+8801333828021">01333828021</a>
+          </article>
+
+          <article class="contact-card">
+            <div class="contact-icon">in</div>
+            <h3>LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/jannatun-nesa-jim-620727295" target="_blank" rel="noopener noreferrer">
+              View LinkedIn Profile
+            </a>
+          </article>
+        </div>
+
+        <div style="text-align:center; margin-top:28px;">
+          <p style="color:#c9dce5;">Location: Shamsun Nahar Hall, Dhaka University Area, Bangladesh</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Most. Jannatun Nesa Jim. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">↑</button>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
